@@ -1,0 +1,135 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Set base colors for light/dark mode */
+@layer base {
+  :root {
+    color-scheme: light;
+  }
+  
+  .dark {
+    color-scheme: dark;
+  }
+}
+
+/* Custom form styles */
+@layer components {
+  .card {
+    @apply bg-white dark:bg-gray-800 rounded-xl shadow-md overflow-hidden;
+  }
+  
+  .container-fluid {
+    @apply px-4 sm:px-6 lg:px-8;
+  }
+  
+  .form-label {
+    @apply block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1;
+  }
+  
+  .form-control {
+    @apply block w-full px-3 py-2 bg-white dark:bg-gray-900 border border-gray-300 dark:border-gray-700 rounded-md shadow-sm placeholder-gray-400 dark:placeholder-gray-500
+    focus:outline-none focus:ring-2 focus:ring-indigo-500 dark:focus:ring-indigo-400 focus:border-indigo-500 dark:focus:border-indigo-400 
+    text-gray-900 dark:text-gray-100 sm:text-sm;
+  }
+  
+  .form-error {
+    @apply flex items-center mt-1 text-sm text-red-600 dark:text-red-400;
+  }
+  
+  .btn {
+    @apply inline-flex justify-center items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-white dark:focus:ring-offset-gray-900 transition-colors;
+  }
+  
+  .btn-primary {
+    @apply bg-indigo-600 dark:bg-indigo-500 text-white hover:bg-indigo-700 dark:hover:bg-indigo-600 focus:ring-indigo-500;
+  }
+  
+  .btn-secondary {
+    @apply bg-white dark:bg-gray-800 text-gray-700 dark:text-gray-300 border-gray-300 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-700 focus:ring-indigo-500;
+  }
+  
+  .text-primary {
+    @apply text-gray-900 dark:text-white;
+  }
+  
+  .text-secondary {
+    @apply text-gray-600 dark:text-gray-400;
+  }
+  
+  .bg-surface {
+    @apply bg-white dark:bg-gray-800;
+  }
+  
+  .bg-surface-secondary {
+    @apply bg-gray-50 dark:bg-gray-900;
+  }
+  
+  .border-subtle {
+    @apply border-gray-200 dark:border-gray-700;
+  }
+}
+
+/* Prevent field overlap */
+.form-group {
+  @apply mb-4;
+}
+
+/* Add space for error messages to prevent layout shifts */
+.form-error-container {
+  @apply min-h-[1.5rem];
+}
+
+/* Responsive grid adjustments */
+@media (max-width: 640px) {
+  .form-group {
+    @apply mb-5;
+  }
+  
+  .form-label {
+    @apply mb-1.5;
+  }
+  
+  .btn {
+    @apply py-2.5 text-base;
+  }
+}
+
+/* Fix for mobile form fields */
+input[type="date"] {
+  @apply appearance-none;
+}
+
+/* Prevent zoom-in on mobile inputs */
+@media (max-width: 640px) {
+  input, select, textarea {
+    @apply text-base;
+  }
+}
+
+/* Fix combobox dropdown positioning */
+[role="combobox"] {
+  @apply relative;
+}
+
+[role="listbox"] {
+  @apply z-30;
+}
+
+/* Handle transitions for theme switching */
+* {
+  @apply transition-colors duration-200;
+}
+
+/* Status color utilities for both themes */
+.status-clear {
+  @apply text-green-600 dark:text-green-400 font-medium;
+}
+
+.status-excluded {
+  @apply text-red-600 dark:text-red-400 font-medium;
+}
+
+.status-warning {
+  @apply text-amber-600 dark:text-amber-400 font-medium;
+}
